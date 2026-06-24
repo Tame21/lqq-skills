@@ -36,6 +36,10 @@ python bulk-text-intake/scripts/bulk_text_intake.py /path/to/input --output /pat
 
 For reusable user prompts, load `references/prompt_templates.md` and replace the `{{PLACEHOLDERS}}` for the current corpus and desired output.
 
+Load `references/extraction_rules.md` when extraction quality, converter choice, legacy Office files, or rerun strategy matters.
+
+Load `references/todo_audit_rules.md` when the user asks for TODO, FIXME, comment, review-note, remediation, or issue cleanup analysis.
+
 ## Output Contract
 
 The script writes:
@@ -57,25 +61,6 @@ Classify by extension first, then optionally refine by path or content:
 - `auxiliary`: all other extensions
 
 For review reporting, keep auxiliary files separate. They can inform context but should not inflate supported-type counts or TODO/comment-review statistics.
-
-## Extraction Guidance
-
-Prefer deterministic extraction:
-
-- `.docx`, `.pptx`, `.xlsx`: parse zipped Office XML directly.
-- `.xml`, `.html`, `.md`, `.java`, `.py`, `.js`: decode as text with UTF-8 fallback handling.
-- `.doc`, `.ppt`, `.xls`: use available external converters when present; otherwise record a partial/failure status instead of pretending extraction is complete.
-
-When the script cannot fully extract a legacy binary file, say so clearly in the final answer and point to `manifest.json`.
-
-## TODO And Comment Issues
-
-Find TODO-style and review-note issues only in primary supported types:
-
-- Tokens: `TODO`, `FIXME`, `HACK`, `XXX`, `BUG`, `REVIEW`, `OPTIMIZE`
-- Comment forms: line comments, block comments, HTML/XML comments, Markdown comments, and extracted Office text containing these tokens.
-
-Report filename, line number if available, token, and a short snippet. For Office formats where line numbers are not meaningful, use blank line numbers or extracted-text line numbers.
 
 ## Working Style
 
