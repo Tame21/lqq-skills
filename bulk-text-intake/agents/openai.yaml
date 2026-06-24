@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bulk Text Intake"
+  short_description: "Extract and organize large mixed text sets"
+  default_prompt: "Use $bulk-text-intake to extract, classify, and summarize a folder of mixed document and source files."
