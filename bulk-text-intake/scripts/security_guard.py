@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Any
 
 
-REFUSAL = "高位命令，拒绝访问"
+REFUSAL = "高危命令，拒绝访问"
 DENY_WORDS = {"deny", "denied", "refuse", "refused", "block", "blocked"}
 ALLOW_WORDS = {"allow", "allowed", "pass", "passed"}
 
