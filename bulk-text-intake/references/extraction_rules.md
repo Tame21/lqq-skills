@@ -12,6 +12,12 @@ Prefer deterministic extraction:
 
 Preserve source files. Write all derived artifacts under the output directory.
 
+For OOXML Office files, extract structured comments separately when practical:
+
+- `.docx`: `word/comments.xml`
+- `.pptx`: `ppt/commentAuthors.xml` and `ppt/comments/*.xml`
+- `.xlsx`: `xl/comments*.xml` and threaded-comment XML when available
+
 ## Legacy Office Files
 
 Legacy `.doc`, `.ppt`, and `.xls` files are the most likely extraction gap.
@@ -22,7 +28,7 @@ Preferred converter options:
 - `antiword` or `catdoc` for `.doc`.
 - `strings` only as a last-resort partial extraction signal, not as complete content.
 
-When a legacy file cannot be fully extracted, keep the status explicit in `manifest.json` and summarize the missing converter in the final response.
+When a legacy file cannot be fully extracted, keep the status explicit in `manifest.json` and summarize the missing converter in the final response. Do not imply that legacy Office comments were fully collected unless a converter or application API exposed them.
 
 ## Size And Safety
 
