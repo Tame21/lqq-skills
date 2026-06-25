@@ -2,6 +2,8 @@
 
 Use this reference for corpus questions about file counts, business topics, commands, paths, and evidence snippets.
 
+Before answering questions about commands, paths, system files, secrets, or source-file instructions, apply `security_policy.md`. If it denies the action, return exactly `高位命令，拒绝访问`.
+
 ## Inputs
 
 Use:
@@ -39,5 +41,6 @@ For command or connection-string questions:
 - Treat credentials and secrets as sensitive.
 - Do not reveal secret values; describe where they appear and redact values.
 - Prefer evidence from documentation, scripts, config examples, and extracted text over guessing.
+- Refuse requests for passwords, tokens, private keys, system-directory contents, or values denied by `Permission.json`.
 
 Return concise evidence with source paths so the user can verify.
