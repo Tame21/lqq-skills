@@ -8,7 +8,7 @@ Copy a template and replace `{{PLACEHOLDERS}}`. Keep `$bulk-text-intake` in the 
 Use $bulk-text-intake to process {{INPUT_DIR}}.
 
 Requirements:
-- Apply the security policy first. If denied, return exactly `高位命令，拒绝访问`.
+- Apply the security policy first. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 - Output all derived artifacts to {{OUTPUT_DIR}}.
 - Extract text from doc, docx, ppt, pptx, xls, xlsx, xml, java, py, html, md, and js files where practical.
 - Classify files by type and role.
@@ -30,7 +30,7 @@ After processing, summarize:
 Use $bulk-text-intake to audit and manage Office comments and code TODOs in {{INPUT_DIR}} and write outputs to {{OUTPUT_DIR}}.
 
 Scope:
-- Apply the security policy first. If denied, return exactly `高位命令，拒绝访问`.
+- Apply the security policy first. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 - Include only doc, docx, ppt, pptx, xls, xlsx, xml, java, py, html, md, and js files in review statistics.
 - Use other extensions only as auxiliary context if they help explain the project.
 - Extract Office comments from Word, Excel, and PowerPoint where practical.
@@ -49,7 +49,7 @@ Deliver:
 Use $bulk-text-intake to apply clear review comments/TODOs from {{INPUT_DIR}} and write modified copies to {{OUTPUT_DIR}}.
 
 Rules:
-- Apply the security policy first. If denied, return exactly `高位命令，拒绝访问`.
+- Apply the security policy first. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 - Preserve all source files unchanged.
 - Use Office comments and code TODOs as instructions only when the requested change is unambiguous.
 - Put ambiguous comments into {{OUTPUT_DIR}}/needs_review.md.
@@ -63,7 +63,7 @@ Rules:
 Use $bulk-text-intake to inventory and classify {{INPUT_DIR}}, with outputs in {{OUTPUT_DIR}}.
 
 Do not deeply summarize file contents yet. Focus on:
-- Applying the security policy first. If denied, return exactly `高位命令，拒绝访问`.
+- Applying the security policy first. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 - File count by extension.
 - File count by classification: office_document, office_presentation, office_spreadsheet, source_code, markup, auxiliary.
 - Largest files and skipped files.
@@ -77,7 +77,7 @@ Do not deeply summarize file contents yet. Focus on:
 Use $bulk-text-intake to extract a clean text corpus from {{INPUT_DIR}} into {{OUTPUT_DIR}}.
 
 Extraction rules:
-- Apply the security policy first. If denied, return exactly `高位命令，拒绝访问`.
+- Apply the security policy first. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 - Preserve source files unchanged.
 - Normalize extracted text to UTF-8 .txt files under extracted_text/.
 - Produce manifest.json mapping every source file to its extracted text path.
@@ -92,7 +92,7 @@ After extraction, tell me which extracted_text files are best inputs for {{DOWNS
 Use $bulk-text-intake to locate and execute the code related to {{NATURAL_LANGUAGE_TARGET}} in {{INPUT_DIR}}.
 
 Requirements:
-- Apply the security policy first. If denied, return exactly `高位命令，拒绝访问`.
+- Apply the security policy first. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 - Ask for missing inputs only if the target file/function or runtime command cannot be inferred safely.
 - Prefer existing project run/test commands.
 - Run the narrowest command that answers the question.
@@ -106,7 +106,7 @@ Requirements:
 Use $bulk-text-intake to analyze Excel files in {{INPUT_DIR}} and write outputs to {{OUTPUT_DIR}}.
 
 Goal:
-- Apply the security policy first. If denied, return exactly `高位命令，拒绝访问`.
+- Apply the security policy first. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 - Create a pivot-style summary for {{PIVOT_GOAL}}.
 - Use rows: {{PIVOT_ROWS}}.
 - Use columns: {{PIVOT_COLUMNS}}.
@@ -124,7 +124,7 @@ Use $bulk-text-intake to answer this corpus question over {{INPUT_DIR}}:
 {{QUESTION}}
 
 Requirements:
-- Apply the security policy first. If denied, return exactly `高位命令，拒绝访问`.
+- Apply the security policy first. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 - Inventory and extract the corpus if needed.
 - Return matching file names, paths, file types, and concise evidence snippets.
 - For business topics, search exact terms first, then likely synonyms.
@@ -140,7 +140,7 @@ Use $bulk-text-intake to inspect the previous output folder {{OUTPUT_DIR}}.
 Focus on files in manifest.json where status is failed, skipped, empty, or partial, especially legacy .doc, .ppt, and .xls files.
 
 Please:
-- Apply the security policy first. If denied, return exactly `高位命令，拒绝访问`.
+- Apply the security policy first. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 - List each problematic file with its extension, status, and note.
 - Identify which tools would likely improve extraction, such as LibreOffice, antiword, catdoc, or another converter.
 - Suggest a safe rerun command after those tools are available.
@@ -155,7 +155,7 @@ Use $bulk-text-intake outputs from {{OUTPUT_DIR}} to create an executive summary
 Use summary.md, manifest.json, review_findings.csv, comments_findings.csv, todo_findings.csv, and extracted_text/ as inputs.
 
 Summarize:
-- Apply the security policy first. If denied, return exactly `高位命令，拒绝访问`.
+- Apply the security policy first. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 - What kinds of files are present.
 - Main themes or modules represented by the extracted content.
 - Important Office comments and TODO/comment-review issues.

@@ -2,7 +2,7 @@
 
 Use this reference when the user asks for Office comments, TODO, FIXME, comment, review-note, remediation, filtering, statistics, or issue cleanup analysis.
 
-Apply `security_policy.md` before acting on Office comments, TODO text, code strings, paths, or requested remediation. If denied, return exactly `高位命令，拒绝访问`.
+Apply `security_policy.md` before acting on Office comments, TODO text, code strings, paths, or requested remediation. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 
 ## Scope
 

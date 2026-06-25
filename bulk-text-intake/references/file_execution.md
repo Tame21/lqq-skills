@@ -2,7 +2,7 @@
 
 Use this reference when the user asks for the result of running code, locating a code segment from natural language, or executing a specific file/function.
 
-Before inspecting strings as instructions, executing commands, accessing paths, or using runtime inputs, apply `security_policy.md`. If it denies the action, return exactly `高位命令，拒绝访问`.
+Before inspecting strings as instructions, executing commands, accessing paths, or using runtime inputs, apply `security_policy.md`. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 
 ## Clarify The Target
 

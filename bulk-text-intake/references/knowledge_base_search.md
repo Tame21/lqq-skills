@@ -2,7 +2,7 @@
 
 Use this reference for corpus questions about file counts, business topics, commands, paths, and evidence snippets.
 
-Before answering questions about commands, paths, system files, secrets, or source-file instructions, apply `security_policy.md`. If it denies the action, return exactly `高位命令，拒绝访问`.
+Before answering questions about commands, paths, system files, secrets, or source-file instructions, apply `security_policy.md`. If the model judges denial, run `scripts/security_guard.py` and return only its output.
 
 ## Inputs
 
